@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CinePlex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/foo.css' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/activity.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/custom.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">CinePlex</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" class="scroll-link" data-id="home">主页</a></li>
+      <li><a href="#" class="scroll-link" data-id="buy">选座购票</a></li>
+      <li><a style="cursor:pointer;" id="loginpopup">登录 / 注册</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好，<strong>王二</strong> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">会员信息</a></li>
+          <li><a href="#">购票</a></li>
+          <li class="divider"></li>
+          <li><a href="#">登出</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    -->
+  </div><!-- /.navbar-collapse -->
+  </nav>
+  <!-- Code for Login / Signup Popup -->
+  <!-- Modal Log in -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+	  <div class="modal-dialog" style="margin-top: 150px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel1">登录CinePlex</h4>
+	      </div>
+	      <div class="modal-body" id="login_details">
+	     
+	        *<span style="font-weight:bold;">邮箱</span><br />
+	        <input type="text" placeholder="example@gmail.com" name="login_email" /><br /></br>
+	        *<span style="font-weight:bold;" >密码</span><br />
+	        <input type="password" placeholder="Password" name="login_password" /><br />
+	      </div>
+	      <div class="modal-footer" >
+			<input style="float: left" type="button" class="btn btn-success" value="登录" /> 
+	       <span class="fp-link"> <a href="#">忘记密码？</a></span>
+	       </br></br>
+			<span> 还不是会员？</span>
+			<span id="signup-link" style="cursor:pointer;" class="text-info">现在注册！</span>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+ <!--Modal Login Ends -->
+ <!-- Modal Sign-up Starts -->
+	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+	  <div class="modal-dialog" style="margin-top: 100px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel2">注册CinePlex</h4>
+	      </div>
+	      <div class="modal-body" id="signup_details">
+	        <span >全名</span>
+	        <input type="text" placeholder="Full Name" name="register_name" /> </br></br>
+	        *<span >邮箱</span>
+	        <input type="text" placeholder="example@gmail.com" name="register_email" /></br></br>
+	        *<span >请输入密码</span>
+	        <input type="password" placeholder="Password" name="register_password" /></br></br>
+	        *<span >再次输入密码</span>
+	        <input type="password" placeholder="Re-type Password" name="re_register_password" />
+	      </div>
+	      <div class="modal-footer" >
+		<input style="float: left" type="button" class="btn btn-success"  value="确认注册" /> 
+	       <span>&nbsp;&nbsp;&nbsp; 已经是会员？ </span><span id="login-link" class="text-info" style="cursor:pointer;">  现在登录！  </span> 
+		 </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+  <!-- Modal Sign up ends! -->
+  <!-- End code for Login / Signup Popup -->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="row" style="border-bottom:solid #ae3910;margin-top:50px;">
+      <h2>所有活动</h2>
+      </div>
+      <div class="activity-wrapper" style="border-bottom: solid #ae3910;margin-top:15px;">
+            <div class="form-group question-wrapper">
+                  <div class="row">
+               
+                     <p class="navbar-text col-xs-2">问题内容：</p>
+        
+                    <div class="col-xs-8 " style="padding-top:10px">
+                     <p class="form-control">这是一个问题?</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <p class="navbar-text col-xs-2">问题选项：</p>
+                    <div class="choice col-xs-3">
+                       <input name="movie" type="checkbox"  value="" />
+                       <label class="movie-choice">A:教父 </label> 
+                     
+                    </div>
+                     <div class="choice col-xs-3">
+                      <input name="movie" type="checkbox" value="" />
+                      <label class="movie-choice">B:肖申克的救赎 </label> 
+               
+                    </div>
+                     <div class="choice col-xs-3">
+                      <input name="movie" type="checkbox" value="" />
+                      <label class="movie-choice">C:阿甘 </label>
+                    </div>
+                   </div>
+
+                    <div class="row">
+                      <p class="navbar-text col-xs-2">匹配电影：</p>
+                      <label class="col-xs-2 movie-match">教父 </label> 
+                      <label class="col-xs-2 movie-match">肖申克的救赎 </label> 
+                      <label class="col-xs-2 movie-match">阿甘 </label> 
+                    </div>
+                   
+                  
+                  <input class="btn btn-default" type="submit" value="提交答案">
+                </div>
+      </div>
+
+          <div class="activity-wrapper" style="border-bottom: solid #ae3910;margin-top:15px;">
+            <div class="form-group question-wrapper">
+                  <div class="row">
+               
+                     <p class="navbar-text col-xs-2">问题内容：</p>
+        
+                    <div class="col-xs-8 " style="padding-top:10px">
+                     <p class="form-control">这是一个问题?</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <p class="navbar-text col-xs-2">问题选项：</p>
+                    <div class="choice col-xs-3">
+                       <input name="movie" type="checkbox"  value="" />
+                       <label class="movie-choice">A:教父 </label> 
+                     
+                    </div>
+                     <div class="choice col-xs-3">
+                      <input name="movie" type="checkbox" value="" />
+                      <label class="movie-choice">B:肖申克的救赎 </label> 
+               
+                    </div>
+                     <div class="choice col-xs-3">
+                      <input name="movie" type="checkbox" value="" />
+                      <label class="movie-choice">C:阿甘 </label>
+                    </div>
+                   </div>
+
+                    <div class="row">
+                      <p class="navbar-text col-xs-2">匹配电影：</p>
+                      <label class="col-xs-2 movie-match">教父 </label> 
+                      <label class="col-xs-2 movie-match">肖申克的救赎 </label> 
+                      <label class="col-xs-2 movie-match">阿甘 </label> 
+                    </div>
+                   
+                  
+                  <input class="btn btn-default" type="submit" value="提交答案">
+                </div>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="clearfix"></div>
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">主页</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">关于我们</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">服务员</a>&<a href="#services">经理</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">联系方式</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Fred Xue 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

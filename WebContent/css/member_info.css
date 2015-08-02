@@ -1,0 +1,9 @@
+.info-item, .info-label{
+	font-size: 20px;
+}
+.info-row{
+	margin:30px 0px;
+}
+#info{
+	color:#dd4814;
+}

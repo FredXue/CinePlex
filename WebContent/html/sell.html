@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CinePlex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/foo.css' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/buy.css" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="../js/buy.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">CinePlex</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" class="scroll-link" data-id="home">主页</a></li>
+      <li><a href="#" class="scroll-link" data-id="buy">选座购票</a></li>
+      <li><a style="cursor:pointer;" id="loginpopup">登录 / 注册</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好，<strong>王二</strong> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">会员信息</a></li>
+          <li><a href="#">购票</a></li>
+          <li class="divider"></li>
+          <li><a href="#">登出</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    -->
+  </div><!-- /.navbar-collapse -->
+  </nav>
+  <!-- Code for Login / Signup Popup -->
+  <!-- Modal Log in -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+	  <div class="modal-dialog" style="margin-top: 150px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel1">登录CinePlex</h4>
+	      </div>
+	      <div class="modal-body" id="login_details">
+	     
+	        *<span style="font-weight:bold;">邮箱</span><br />
+	        <input type="text" placeholder="example@gmail.com" name="login_email" /><br /></br>
+	        *<span style="font-weight:bold;" >密码</span><br />
+	        <input type="password" placeholder="Password" name="login_password" /><br />
+	      </div>
+	      <div class="modal-footer" >
+			<input style="float: left" type="button" class="btn btn-success" value="登录" /> 
+	       <span class="fp-link"> <a href="#">忘记密码？</a></span>
+	       </br></br>
+			<span> 还不是会员？</span>
+			<span id="signup-link" style="cursor:pointer;" class="text-info">现在注册！</span>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+ <!--Modal Login Ends -->
+ <!-- Modal Sign-up Starts -->
+	<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+	  <div class="modal-dialog" style="margin-top: 100px;">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        <h4 class="modal-title" id="myModalLabel2">注册CinePlex</h4>
+	      </div>
+	      <div class="modal-body" id="signup_details">
+	        <span >全名</span>
+	        <input type="text" placeholder="Full Name" name="register_name" /> </br></br>
+	        *<span >邮箱</span>
+	        <input type="text" placeholder="example@gmail.com" name="register_email" /></br></br>
+	        *<span >请输入密码</span>
+	        <input type="password" placeholder="Password" name="register_password" /></br></br>
+	        *<span >再次输入密码</span>
+	        <input type="password" placeholder="Re-type Password" name="re_register_password" />
+	      </div>
+	      <div class="modal-footer" >
+		<input style="float: left" type="button" class="btn btn-success"  value="确认注册" /> 
+	       <span>&nbsp;&nbsp;&nbsp; 已经是会员？ </span><span id="login-link" class="text-info" style="cursor:pointer;">  现在登录！  </span> 
+		 </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+  <!-- Modal Sign up ends! -->
+  <!-- End code for Login / Signup Popup -->
+<div class="container">
+
+  <div class="buy-wrapper">
+    
+      <div class="seat-step">
+        <ul>
+            <li class="down"><s></s>1.选择影片，场次</li>
+            <li class="current">2.选座，填手机号</li>
+            <li class="future">3.确认订单，支付</li>
+            <li class="future">4.支付成功，影院取票观影</li>
+        </ul>
+      </div>
+    <div class="center-wrap seat-wrap">
+      <div class="seat-left ">
+        <div class="clearfix">
+            <div class="J_column">
+              <ul style="padding:0px;">
+                <label style="position: relative;top: 50px;">1</label>
+                <label style="position: relative;top: 50px;">2</label>
+                <label style="position: relative;top: 50px;">3</label>
+                <label style="position: relative;top: 110px;">4</label>
+                <label style="position: relative;top: 110px;">5</label>
+                <label style="position: relative;top: 110px;">6</label>
+                <label style="position: relative;top: 110px;">7</label>
+                <label style="position: relative;top: 110px;">8</label>
+                <label style="position: relative;top: 110px;">9</label>
+                <label style="position: relative;top: 110px;">10</label>
+              </ul>
+            </div>
+            <!-- 座位表-->
+            <div class="seatContainer" style="">
+                <div class="seatTitle" style="margin-left: 30px;">
+                    <h2>
+                     CinePlex影院 1号厅 银幕
+                    </h2>
+                    <s></s>
+                </div>
+                <div class="seatChoose J_Boundry">
+                    <div class="seat_zuo J_seat_zuo">
+                      <table style="width:630px">
+                        <tbody>
+                          <tr>
+                                          <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                          </tr>
+ <tr>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                             <td style="" class="seat-block">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                           <tr>
+                            <td style="" class="seat-cell " data-name="1排12座" data-seatid="20002707_302" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排11座" data-seatid="20002707_303" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排10座" data-seatid="20002707_304" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排9座" data-seatid="20002707_305" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排8座" data-seatid="20002707_306" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排7座" data-seatid="20002707_307" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排6座" data-seatid="20002707_308" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排5座" data-seatid="20002707_309" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排4座" data-seatid="20002707_310" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排3座" data-seatid="20002707_311" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排2座" data-seatid="20002707_312" data-flag="0">&nbsp;</td>
+                            <td style="" class="seat-cell " data-name="1排1座" data-seatid="20002707_313" data-flag="0">&nbsp;</td>
+                          </tr>
+                          </tbody>
+                          </table>
+                          </div>
+                </div>
+            </div>
+        </div>
+        <div class="seatChooseInfor">
+            <ul class="clearfix">
+                <li><span class="hasSeat"></span>可选座位</li>
+                <li><span class="sellSeat"></span>已选座位</li>
+                <li><span class="checkSeat"></span>不可选座位</li>
+                <li><span class="loveSeat"></span>情侣座</li>
+            </ul>
+                                                    <p> 本影厅共有座位150个，当前已售<span class="J_sell">0</span>个</p>
+              </div>
+        
+
+      </div>
+      <div class="seat-right">
+        <div class="seatMovie clearfix">
+            <div class="picBox">
+                <a href="">
+          <img src="../img/godfather.jpg"></a>
+            </div>
+            <ul>
+                <li><h3 style="margin-top:0px;">教父  </h3></li>
+                <li>语言： 中文|英语 </li>
+                <li>版本： 2D </li>
+                <li>片长： 106分钟 </li>
+                <li>类型： IMAX,普通  </li> 
+           </ul>
+        </div>
+        <div class="seatContent">
+            <ul style="padding-left:5px;">
+                <li>
+                    <label>影院：</label>
+                    <strong>南京大学软件电影院</strong>
+                </li>
+                <li>
+                    <label>影厅：</label>
+                    <strong>1号厅</strong>
+                </li>
+                <li>
+                    <label>场次：</label>
+                    <a href="javascript:" class="changPlace J_show"><s></s>更换场次</a>
+                    <em>3月14日(周六) 20:10</em>
+                </li>
+                <li class="line">
+                    <label>座位:</label>
+                    <span class="No_set" style="">还未选择座位</span>
+                    <div class="J_pewGroup"></div>
+                     <p class="J_seatNum_tips" style="">点击<em>左侧座位图</em>选择座位，再次点击取消</p>
+                    <p class="J_seatNum_text" style="display: none;">已选择<em>0</em>个座位，再次点击座位可以取消</p>
+                </li>
+        <li>
+                    <label>原价：</label>
+                    <span class="J_originPrice originPrice" data-originprice="3600">¥36.00 x <i>0</i></span>
+                    <span class="offer J_originOffer"></span>
+                </li> 
+                
+                        <li class="total">
+                    <label>总计:</label>
+                    <div style="display:inline;padding-left:8px;">¥<span class="J_price" data-price="3600">0</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="seatForm">
+
+            <ul style="padding-left:5px;">
+
+                <li>
+                    <a href="javascript:" class="sub J_bt">确认信息，售票</a>
+                </li>
+            </ul>
+        </div>
+        
+      </div>
+      </div>
+
+
+  </div>
+  <!-- end of container -->
+</div>
+
+
+<div class="clearfix"></div>
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">主页</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">关于我们</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">服务员</a>&<a href="#services">经理</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">联系方式</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Fred Xue 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

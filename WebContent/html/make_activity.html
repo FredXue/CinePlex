@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CinePlex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/foo.css' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../css/make_activity.css">
+
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">CinePlex-Waitor</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" class="scroll-link" data-id="home">售票</a></li>
+      <li><a href="#" class="scroll-link" data-id="about">制订放映计划</a></li>
+      <li><a href="#" class="scroll-link" data-id="services">制订活动</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好，<strong>服务员</strong> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">个人信息</a></li>
+          <li class="divider"></li>
+          <li><a href="#">登出</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+    <!-- 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    -->
+  </div><!-- /.navbar-collapse -->
+  </nav>
+
+   
+         <div class="container">
+           <div class="row" style="margin-top:50px">
+             <div class="col-xs-8 col-xs-offset-2">
+              <h3 > 制订活动</h3>
+              <form class="form-activity form-froup" >
+                <div class="question-wrapper">
+                  <div class="row">
+               
+                     <p class="navbar-text col-xs-2">问题内容：</p>
+        
+                   <div class="col-xs-8 " style="padding-top:10px">
+                     <input type="text" class="form-control"  placeholder="请在这里输入问题">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <p class="navbar-text col-xs-2">问题选项：</p>
+                    <div class="choice col-xs-3">
+                      <p >A:
+                      <input type="text" class="form-control" ></p>
+                    </div>
+                     <div class="choice col-xs-3">
+                      <p>B:
+                      <input type="text" class="form-control"></p>
+                    </div>
+                     <div class="choice col-xs-3">
+                      <p>C:
+                      <input type="text" class="form-control"></p>
+                    </div>
+                  
+
+                  
+                      <p class="navbar-text col-xs-2">匹配电影：</p>
+                      <label class="col-xs-2 movie-choice"><input name="movie" type="checkbox"  value="" />教父 </label> 
+                      <label class="col-xs-2 movie-choice"><input name="movie" type="checkbox" value="" />肖申克的救赎 </label> 
+                      <label class="col-xs-2 movie-choice"><input name="movie" type="checkbox" value="" />阿甘 </label> 
+                    </div>
+                  <div class="clearfix"></div>
+                  <input class="btn btn-default col-xs-offset-3" type="submit" value="提交活动">
+                </div>
+              </form>
+               
+             </div>
+           </div>
+         </div>
+
+  
+
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">主页</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">关于我们</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">服务员</a>&<a href="#services">经理</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">联系方式</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Fred Xue 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ <!-- JavaScript -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <script src="../js/make_plan.js"></script>
+
+</body>
+
+</html>

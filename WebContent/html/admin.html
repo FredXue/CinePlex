@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CinePlex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/foo.css' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/admin.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">CinePlex-Admin</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="#" class="scroll-link" data-id="plan-manage">管理放映计划</a></li>
+      <li><a href="#" class="scroll-link" data-id="statistics">统计信息</a></li>
+       <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好，<strong>管理员</strong> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">待用</a></li>
+          <li class="divider"></li>
+          <li><a href="#">登出</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    -->
+  </div><!-- /.navbar-collapse -->
+  </nav>
+
+
+
+
+          <div class="content-section-a" id="plan-manage" style=" border-bottom: 2px solid #eb002a;">
+            <div class="plan-filter row" style="margin-top:50px; margin-bottom:20px; border-bottom: 2px solid #eb002a;">
+              <div class="form-group" style="margin:0">
+              <label for="dtp_input1" class="col-xs-1 control-label col-xs-offset-2" style="margin-top:5px">选择影厅：</label>
+              <div class="col-xs-2 ">                  
+                <select class="form-control">  
+                  <option value ="1">1号厅</option>  
+                  <option value ="2">2号厅</option>  
+                  <option value="3">3号厅</option>  
+                  <option value="4">4号厅</option>  
+                </select> 
+              </div>
+              </div>
+               <div class="form-group">
+                <label for="dtp_input1" class="col-xs-1 control-label" style="margin-top:5px">选择日期：</label>
+                <div class="input-group date form_date col-xs-2" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+                 
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+            </div>
+            </div>
+
+            <div class="plan-filter row" >
+              <div class="col-lg-8 col-lg-offset-2">
+              <table class="table table-striped hall-table">
+                  <thead>
+                    <tr>
+                        <th class="hall-movie">放映电影</th>
+                        <th class="hall-time-start">开始时间</th>
+                        <th class="hall-movie-long">电影时长</th>
+                        <th class="hall-time-end">预计结束时间</th>
+                    </tr>
+
+                  </thead>
+                  <tbody> 
+                    <tr>
+                      <td class="hall-movie">
+                          <label class="">教父</label>
+                        
+                      </td>
+                      <td class="hall-time-start" data-partcode="mtime" style="width:200px">
+                         <div class="form-group">
+                                <input class="form-control" size="16" type="text" value="" readonly>
+                          </div>
+      
+                      </td>
+                      <td class="hall-movie-long">
+                        120分钟
+                      </td>
+                      <td class="hall-time-end" data-partcode="mtime" style="width:200px">
+                         <div class="form-group">
+                                <input class="form-control" size="16" type="text" value="" readonly>
+                          </div>
+      
+                      </td>
+  
+                    </tr>
+                              
+                      </tbody>  
+                </table>
+
+                <div class="row">
+                  <button class="btn btn-default col-lg-offset-4" type="submit">批准放映计划</button>
+                  <button class="btn btn-default col-lg-offset-1" type="submit">不批准</button>
+                </div>
+              </div>  
+            </div>
+          </div>
+
+          <div class="content-section-a" id="statistics">
+            <div class="container" style=" border-bottom: 2px solid #eb002a;">
+              <!-- 会员统计信息 -->
+         
+                  <h2 class="title">会员统计信息</h2>
+           
+              <div class="row">
+                <div class="col-lg-5 col-lg-offset-1">
+                <canvas id="age-pie" width="300" height="300" style="width:300px; height:300px;"></canvas>
+                </div>
+                <div class="col-lg-5">
+                <canvas id="gender-pie" width="300" height="300" style="width:300px; height:300px;"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <!-- 影院统计信息 -->
+               <h2 class="title">影院统计信息</h2>
+            </div>
+          </div>
+
+
+  
+
+
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">主页</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">关于我们</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">服务员</a>&<a href="#services">经理</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">联系方式</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Fred Xue 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+ <!-- JavaScript -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    
+
+    <script src="../js/Chart.js" type="text/javascript"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

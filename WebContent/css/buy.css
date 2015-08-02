@@ -1,0 +1,191 @@
+/*buy CSS*/
+.buy-wrapper{
+	margin-top: 100px;
+	padding:0px 30px;
+}
+
+.seat-step .current {
+color: #eb002a;
+border-bottom: 2px solid #eb002a;
+}
+.seat-step .down {
+color: #26bb7e;
+border-bottom: 2px solid #26bb7e;
+}
+
+.seat-step .future {
+color: #999;
+border-bottom: 2px solid #ccc;
+}
+
+.seat-step li {
+margin-top: 10px;
+margin-bottom: 10px;
+line-height: 40px;
+display: block;
+float: left;
+width: 247px;
+text-align: center;
+}
+
+.J_column {
+float: left;
+width: 40px;
+padding-left: 15px;
+margin-top: 80px;
+position: relative;
+}
+
+.seatContainer {
+float: left;
+width: 605px;
+min-height: 500px;
+_height: 500px;
+
+position: relative;
+}
+
+.seat-wrap .seat-left {
+float: left;
+width: 680px;
+background: #fff;
+}
+.seat-wrap .seat-right {
+float: left;
+width: 293px;
+margin-right: 40px;
+padding: 20px 0 0 15px;
+}
+
+.J_column label {
+display: block;
+margin-bottom: 8px;
+height: 21px;
+width: 20px;
+text-align: center;
+line-height: 20px;
+color: #fff;
+background: url(http://img01.taobaocdn.com/tps/i1/T14BRUFopcXXcv7RMm-580-60.png) no-repeat -169px -32px;
+}
+.seatMovie .picBox img {
+width: 80px;
+height: 115px;
+}
+.seatMovie {
+padding: 0 10px 20px 0;
+}
+.seatMovie .picBox {
+background: #f7f7f7;
+float: left;
+text-align: center;
+margin-right: 10px;
+display: inline;
+width: 85px;
+height: 115px;
+line-height: 115px;
+overflow: hidden;
+}
+
+.center-wrap{
+	padding-top: 50px;
+}
+
+.seatChooseInfor {
+margin: 0 20px 0 50px;
+border-top: 1px #e5e5e5 solid;
+padding: 20px 0;
+}
+.seatChooseInfor li {
+padding: 0 10px 0 30px;
+float: left;
+line-height: 25px;
+}
+.seatChooseInfor p {
+text-align: center;
+padding-top: 15px;
+}
+
+.seat-wrap .seat-left .seatTitle {
+height: 50px;
+width: 580px;
+margin: 15px auto;
+background-position: -20px 0px;
+background: url(../img/screen.png) no-repeat;
+}
+
+.seat-wrap .seat-left h2 {
+position: absolute;
+font-size: 14px;
+text-align: center;
+width: 580px;
+padding-top: 20px;
+font-weight: 400;
+}
+
+
+.hasSeat, .sellSeat, .checkSeat, .loveSeat, .loveSeatL, .loveSeatR, .loveSeatLcurrent, .loveSeatRcurrent, .hasLcurrent, .hasRcurrent {
+margin-right: 10px;
+width: 26px;
+height: 25px;
+float: left;
+background: url(http://gtms01.alicdn.com/tps/i1/TB1HkvNGXXXXXbdXXXX1T7iZpXX-580-60.png) no-repeat;
+}
+
+.sellSeat {
+background-position: -42px -32px;
+}
+.hasSeat {
+background-position: -16px -32px;
+}
+.checkSeat {
+background-position: -68px -32px;
+}
+.loveSeat {
+cursor: pointer;
+background-position: -243px -32px;
+width: 60px;
+}
+
+.seatContent li {
+padding: 0 0 10px 5px;
+overflow: hidden;
+zoom: 1;
+line-height: 24px;
+}
+
+.seatContent li.line {
+border-bottom: 1px #e5e5e5 solid;
+}
+.seatForm {
+border-top: 1px #e5e5e5 solid;
+padding-top: 15px;
+}
+
+.changPlace {
+float: right;
+width: 60px;
+margin: 0 10px 0 0;
+}
+
+
+.J_seat_zuo .seat-cell {
+background: url(http://gtms04.alicdn.com/tps/i4/TB1Bbf2GXXXXXaiXpXXMUBxFVXX-26-25.png) no-repeat center center;
+}
+
+.J_seat_zuo .seat-sold {
+background: url(http://gtms01.alicdn.com/tps/i1/TB1C5D7GXXXXXcTXXXXMUBxFVXX-26-25.png) no-repeat center;
+}
+
+.J_seat_zuo .seat-checked {
+background: url(http://gtms03.alicdn.com/tps/i3/TB1uMz4GXXXXXaxXpXXMUBxFVXX-26-25.png) no-repeat center center;
+}
+
+.seatChoose{
+	margin-top: 35px;
+}
+
+.seatChoose td{
+  height:29px;
+   margin-bottom: 15px;
+}
+

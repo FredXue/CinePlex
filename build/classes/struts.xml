@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="struts2" namespace="/" extends="struts-default">
+		<interceptors>  
+        <interceptor name="Encoding" class="movie.action.EncodingInterceptor"></interceptor>  
+        <interceptor-stack name="EncodeStack">  
+           <interceptor-ref name="Encoding"></interceptor-ref>  
+           <interceptor-ref name="defaultStack"></interceptor-ref><!-- 必须引入这个，否则request不会再往下传-->  
+        </interceptor-stack>  
+     </interceptors>  
+     
+     <default-interceptor-ref name="EncodeStack"></default-interceptor-ref>  
+     
+       <action name="index" class="movie.action.IndexAction" >
+		    <result name="success">/JSP/index.jsp</result>
+		</action>
+     
+		<action name="login" class="movie.action.MemberAction">	    
+			<result name="success">/</result>
+		</action>
+		
+        <action name="register" class="movie.action.MemberAction" method="register">          
+			<result name="success">/JSP/activate.jsp</result>
+		</action>
+		
+		  <action name="logout" class="movie.action.MemberAction" method="logout">
+           
+			<result name="success">/</result>
+		</action>
+		
+				  <action name="cancelMember" class="movie.action.MemberAction" method="cancel">
+           
+			<result name="success">/</result>
+		</action>
+		
+
+		
+	    <action name="queryPlans" class="movie.action.PlanAction" >
+           
+			<result name="success">/JSP/waiter.jsp</result>
+		</action>
+		
+		 <action name="goBuy" class="movie.action.PlanAction" method="goBuy">
+ 		    <result name="success">/JSP/buy.jsp</result>
+ 		</action>
+ 		
+ 	    <action name="goSell" class="movie.action.PlanAction" method="goSell">
+ 		    <result name="success">/JSP/sell.jsp</result>
+ 		</action>
+ 		
+ 		 <action name="charge" class="movie.action.MemberAction" method="charge">
+ 		    <result name="success">/JSP/member_info.jsp</result>
+ 		</action>
+ 		
+ 		 <action name="changeToBal" class="movie.action.MemberAction" method="changeToBal">
+ 		    <result name="success">/JSP/member_info.jsp</result>
+ 		</action>
+ 		
+ 		<action name="cancel" class="movie.action.MemberAction" method="cancel">
+ 		    <result name="success">/JSP/index.jsp</result>
+ 		</action>
+ 		
+ 		<action name="makeActivity" class="movie.action.ActivityAction" >
+ 		    <result name="success">/JSP/make_activity.jsp</result>
+ 		</action>
+		     
+		 <action name="answer" class="movie.action.ActivityAction" method="answer">
+ 		    <result name="success">/JSP/activity.jsp</result>
+ 		</action>
+ 		
+		<action name="admin">	    
+			<result>/JSP/admin.jsp</result>
+		</action>
+		
+	    <action name="waiter" >	    
+			<result>/JSP/waiter.jsp</result>
+		</action>
+		
+		<action name="memberInfo"  >
+			<result>/JSP/member_info.jsp</result>
+		</action>
+		
+	     <action name="joinActivity" class="movie.action.ActivityAction" method="loadActivity">
+			<result>/JSP/activity.jsp</result>
+		</action>
+		
+
+		
+		 <action name="sell" >	    
+			<result>/JSP/sell.jsp</result>
+		</action>
+		 <action name="make_plan" >	    
+			<result>/JSP/make_plan.jsp</result>
+		</action>
+		 <action name="make_activity" >	    
+			<result>/JSP/make_activity.jsp</result>
+		</action>
+		
+		<action name="adminLogin" >
+		    <result>/JSP/admin_login.jsp</result>
+		</action>
+		
+		<action name="admin_login" class="movie.action.AdminAction">
+                  <result name="success">/JSP/admin_login.jsp</result>
+		</action>	
+	    <action name="human" >	    
+			<result>/JSP/admin_hr.jsp</result>
+		</action>
+		
+	    <action name="finance" >	    
+			<result>/JSP/admin_finance.jsp</result>
+		</action>
+		
+
+		
+	    <action name="manager" >	    
+			<result>/JSP/manager.jsp</result>
+		</action>
+		
+		  <action name="manager2" >	    
+			<result>/JSP/manager_adminreport.jsp</result>
+		</action>
+		  <action name="member_report" >	    
+			<result>/JSP/member_report.jsp</result>
+		</action>
+	</package>
+	
+	<package name="admin" namespace="/admin" extends="struts-default">
+	    <interceptors>  
+          <interceptor name="Encoding" class="movie.action.EncodingInterceptor"></interceptor>  
+          <interceptor-stack name="EncodeStack">  
+           <interceptor-ref name="Encoding"></interceptor-ref>  
+           <interceptor-ref name="defaultStack"></interceptor-ref><!-- 必须引入这个，否则request不会再往下传-->  
+          </interceptor-stack>  
+        </interceptors>  
+     
+     <default-interceptor-ref name="EncodeStack"></default-interceptor-ref>  
+     
+ 		<action name="release" class="movie.action.MovieAction" >	    
+			<result name="success">/JSP/admin.jsp</result>
+		</action>
+    </package>
+    
+    
+    <!-- 用作AJAX的action配置 -->
+	<package name="json" namespace="/json" extends="json-default">
+
+		<action name="ajax*" class="movie.action.AjaxAction" method="{1}">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+	</package>
+	
+	
+
+		
+				 
+
+
+
+	
+</struts>
+

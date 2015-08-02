@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CinePlex</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Google Web Font -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='../css/foo.css' rel='stylesheet' type='text/css'>
+
+    <!-- Add custom CSS here -->
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/custom.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">CinePlex-Waitor</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#" class="scroll-link" data-id="home">售票</a></li>
+      <li><a href="#" class="scroll-link" data-id="about">制订放映计划</a></li>
+      <li><a href="#" class="scroll-link" data-id="services">制订活动</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好，<strong>服务员</strong> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">个人信息</a></li>
+          <li class="divider"></li>
+          <li><a href="#">登出</a></li>
+        </ul>
+      </li>
+      
+    </ul>
+    <!-- 
+    <form class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    -->
+  </div><!-- /.navbar-collapse -->
+  </nav>
+
+  
+    <div class="content-section-a" id="select">
+
+        <div class="container">
+           <div class="row">
+              <div class="col-lg-8 col-lg-offset-2">
+              <!-- choose movie row-->
+              <div class="row movie-select">
+                   <ul class="filter-select">
+                      <li>              
+                             
+                      <div class="select-tags">
+                       <label>选择影片</label> 
+                      <a href="" class="scroll-link" data-id="home">肖申克的救赎</a>
+                      <a href="" class="scroll-link" data-id="home">阿甘正传</a>
+                      <a href="" class="scroll-link" data-id="home">教父</a>
+                      <a href="" class="scroll-link" data-id="home">蝙蝠侠</a>
+                      <a href="" class="scroll-link" data-id="home">天使爱美丽</a>
+                      </div>
+                      </li>
+
+                      <li>
+                      
+            <div class="select-tags">
+            <label>选择时间</label>
+                      <a href="" class="scroll-link" data-id="home">今天</a>
+                      <a href="" class="scroll-link" data-id="home">明天</a>
+                      <a href="" class="scroll-link" data-id="home">后天</a>
+                      </div>
+                      </li>
+                  </ul>
+                </div>
+
+              <div class="row movie-info-wrapper">
+                <img class="movie-post" width="120" height="160" src="../img/godfather.jpg">
+                <div class="movie-info-inner">
+                  <h4 class="info-title">
+                          <a href="" class="movie-name" data-spm-id="">教父
+                            <small class="score">8.6</small>
+                          </a>
+                  </h4>
+            <div class="movie-info">
+              <ul>
+                  <li>看点：你可会愿陪我看《教父》直到长发及腰直到天荒地老？</li>
+                  <li>导演：弗朗西斯·福特·科波拉</li>
+                  <li>主演：马龙·白兰度 / 阿尔·帕西诺</li>
+                              <li>类型：剧情 / 惊悚 / 犯罪</li>
+                  <li>制片国家/地区：美国</li>
+                  <li>语言：英语</li>
+              </ul>
+            </div>
+
+                </div>
+              </div>
+
+              <div class="row movie-select">
+                <table class="table table-striped hall-table">
+                  <thead>
+                    <tr>
+                        <th class="hall-time">放映时间</th>
+                        <th class="hall-type">语言版本</th>
+                        <th class="hall-name">放映厅</th>
+                        <th class="hall-price">现价/影院价（元）</th>
+                        <th class="hall-buy">选座售票</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                              
+                      <tr>
+                      <td class="hall-time">
+                        <em class="bold">11:00</em>
+                        预计12:46散场 
+                      </td>
+                      <td class="hall-type">
+                        国语 2D
+                      </td>
+                      <td class="hall-name">
+                        6号厅
+                      </td>
+
+                      <td class="hall-price" data-partcode="mtime">
+                        <em class="now">35.00</em>
+                        <del class="old">70.00</del>
+      
+                      </td>
+                      <td class="hall-seat">
+                      <a class="seat-btn" href="此处应有选座购票的页面">选座售票</a>
+                      </td>
+                    </tr>
+                              
+                      <td class="hall-time">
+                        <em class="bold">13:00</em>
+                        预计14:46散场 
+                      </td>
+                      <td class="hall-type">
+                        国语 2D
+                      </td>
+                      <td class="hall-name">
+                        6号厅
+                      </td>
+                            
+                      <td class="hall-price" data-partcode="mtime">
+                        <em class="now">35.00</em>
+                        <del class="old">70.00</del>
+                                </td>
+                      <td class="hall-seat">
+                         <a class="seat-btn" href="。。。">选座售票</a>
+                      </td>
+      
+                              
+                  </tbody>  
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+  
+
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="#home">主页</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#about">关于我们</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#services">服务员</a>&<a href="#services">经理</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="#contact">联系方式</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Fred Xue 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
